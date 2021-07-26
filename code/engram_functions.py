@@ -24,7 +24,9 @@ def permute_optimize_keys(fixed_letters, fixed_letter_indices, open_letter_indic
                 break
 
     letter_permutations = permute_letters(unassigned_letters, verbose)
-    top_permutation, top_score = optimize_layout(matrix_selected, bigrams, bigram_frequencies, letter_permutations, open_letter_indices, fixed_letters, fixed_letter_indices, min_score, verbose)
+    if verbose:
+        print("{0} permutations".format(len(letter_permutations)))
+    top_permutation, top_score = optimize_layout(np.array([]), matrix_selected, bigrams, bigram_frequencies, letter_permutations, open_letter_indices, fixed_letters, fixed_letter_indices, min_score, verbose)
     
     return top_permutation, top_score
 
@@ -50,9 +52,12 @@ def permute_optimize(letters, all_letters, all_keys, data_matrix, bigrams, bigra
         else:
             fixed_positions.append(iletter)
             fixed_letters.append(letter)
+
     letter_permutations = permute_letters(open_letters, verbose)
-    top_permutation, top_score = optimize_layout(matrix_selected, bigrams, bigram_frequencies, letter_permutations, open_positions, fixed_letters, fixed_positions, min_score, verbose)
-    
+    if verbose:
+        print("{0} permutations".format(len(letter_permutations)))
+    top_permutation, top_score = optimize_layout(letters, matrix_selected, bigrams, bigram_frequencies, letter_permutations, open_positions, fixed_letters, fixed_positions, min_score, verbose)
+        
     return top_permutation, top_score
 
 
@@ -77,9 +82,6 @@ def select_keys(data_matrix, keys, verbose=False):
     Select = newMin + (Select - np.min(Select)) * (newMax - newMin) / (np.max(Select) - np.min(Select))
     
     if verbose:
-        #print("Matrix:")
-        #np.set_printoptions(precision=2); print(Select)
-
         # Heatmap of array
         heatmap(data=Select, title="Matrix heatmap", xlabel="Key 1", ylabel="Key 2", print_output=False); plt.show()
     
@@ -94,8 +96,6 @@ def permute_letters(letters, verbose=False):
     for p in multiset_permutations(letters):
         letter_permutations.append(p)
     letter_permutations = np.array(letter_permutations)
-    #if verbose:
-    #    print("First permutation: {0}".format(letter_permutations[0])) 
     
     return letter_permutations
 
@@ -296,7 +296,7 @@ def tally_layout_bigram_rolls(layout, bigrams, bigram_frequencies, nkeys=32, ver
     return bigram_rolls, bigram_roll_counts, bigram_rolls_total 
 
 
-def optimize_layout(data_matrix, bigrams, bigram_frequencies, letter_permutations, open_positions, fixed_letters, fixed_positions=[], min_score=0, verbose=False):
+def optimize_layout(starting_letters, data_matrix, bigrams, bigram_frequencies, letter_permutations, open_positions, fixed_letters, fixed_positions=[], min_score=0, verbose=False):
     """
     Compute scores for all letter-key layouts.
     """
@@ -305,7 +305,6 @@ def optimize_layout(data_matrix, bigrams, bigram_frequencies, letter_permutation
     use_score_function = False
 
     nletters = len(open_positions) + len(fixed_positions)
-    top_permutation = np.array([])
     F2 = np.zeros((nletters, nletters))
 
     # Loop through the permutations of the selected letters:
@@ -343,6 +342,9 @@ def optimize_layout(data_matrix, bigrams, bigram_frequencies, letter_permutation
             top_permutation = letters
             
     if verbose:
+        if top_score == min_score:
+            print("top_score = min_score")
+            top_permutation = starting_letters
         print("{0:0.8f}".format(top_score))
         print(*top_permutation)
         
@@ -455,12 +457,10 @@ def exchange_letters(letters, fixed_letter_indices, all_letters, all_keys, data_
             for open_index in open_indices:
                 if open_index not in fixed_letter_indices:
                     top_permutation[open_index] = ''
-                    
-            output_permutation, top_score = permute_optimize(top_permutation, letters24, keys24, data_matrix, bigrams, bigram_frequencies, min_score=top_score, verbose=True)            
-            output_permutation = output_permutation.tolist()
-            if output_permutation:
-                top_permutation = output_permutation
-        
+            
+            top_permutation, top_score = permute_optimize(top_permutation, letters24, keys24, data_matrix, 
+                                                          bigrams, bigram_frequencies, min_score=top_score, 
+                                                          verbose=True)                    
     if verbose:
         print('')
         print('    -------- DONE --------') 
