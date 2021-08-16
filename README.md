@@ -56,7 +56,7 @@ The name is a pun, referring both to "n-gram", letter permutations and their fre
     11. Assign easy-to-remember symbols to the Shift-number keys.
     
 ### Factors used to compute the engram-es layout <a name="factors">
-  - Spanish letter and letter bigram frequency data from a cleaned-up version of the Leipzig Spanish corpus. The largest file was downloaded from each row of the [original version](https://wortschatz.uni-leipzig.de/en/download/Spanish), except for rows corresponding to Central or South American countries, and lines containing non-Spanish names and words were removed. 
+  - Spanish letter and letter bigram frequency data from a cleaned-up version of the Leipzig Spanish corpus. The largest file was downloaded from each row of the [original version](https://wortschatz.uni-leipzig.de/en/download/Spanish), except for rows specified as not from Spain, and lines containing non-Spanish names and words were removed. 
     <br>
   - **Flow factors** (transitions between ordered key pairs)
          
