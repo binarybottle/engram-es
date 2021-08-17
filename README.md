@@ -87,27 +87,30 @@ Below, we will arrange vowels on one side and the most frequent consonants to th
     
 **E, A, O**, S, N, **I**, R, L, D, C, T, U, M, P, B, G, V, Q, Y, F, H, J, Z, X, K, W
                          
-The highest frequency bigrams that contain two vowels with more than 100,000 instances:
-
-    
-# REPLACE:
-       
-    UE  985764
-    IO  796173
-    IA  631386
-    IE  490356
-    AE  369819
-    EA  338302
-    OE  317708
-    OA  229658
-    AU  180953
-    UA  163664
-    UI  151905
-    EU  150552
-    AI  147221
-    AO  105185
-    
-We will assign the most frequent vowels (E=294897235, A=271738665, O=201996963, I=151438547) to four of the six most comfortable keys on the left side of the keyboard (keys 2,3,5,6,7,8). We will assign the letter E, the most frequent in the Spanish language, to the strongest (middle) finger on the home row, and assign the other three vowels such that (1) the home row keys typed by the index and middle fingers are not left vacant, and any top-frequency bigram (more than 40,000 instances, 1/50th of the highest, DE) (2) does not use the same finger and (3) reads from left to right (ex: UE, not EU) for ease of typing (inward roll from little to index finger vs. outward roll from index to little finger). These constraints lead to 4 arrangements of the 4 vowels:
+Bigrams that contain two non-repeating vowels, and their frequencies:
+  
+    UE	17135545
+    IO	10629390
+    IA	 9704625
+    IE 	 8264649
+    UA	 2727622
+    UI	 2699510
+    EA    1634965
+    AU    1206620
+    EO	  787382
+    AI	  768894
+    EI	  578063
+    EU	  338775
+    IU	  314965
+    AE	  279633
+    OI	  193436
+    OE	  182266
+    UO	  175574
+    OU	  174475
+    OA	  117839
+    AO	   88065
+  
+We will assign the most frequent vowels (E=294897235, A=271738665, O=201996963, I=151438547) to four of the six most comfortable keys on the left side of the keyboard (keys 2,3,5,6,7,8). We will assign the letter E, the most frequent in the Spanish language, to the strongest (middle) finger on the home row, and assign the other three vowels such that (1) the home row keys typed by the index and middle fingers are not left vacant, and any top-frequency bigram (more than 1 million instances) (2) does not use the same finger and (3) reads from left to right (ex: UE, not EU) for ease of typing (inward roll from little to index finger vs. outward roll from index to little finger). These constraints lead to 4 arrangements of the 4 vowels:
 
     - - O -    - - O -    - O - -    - - - -    
     - I E A    I - E A    I - E A    I O E A
@@ -117,34 +120,59 @@ We will assign the most frequent vowels (E=294897235, A=271738665, O=201996963, 
 
 E, A, O, **S, N**, I, **R, L, D, C, T**, U, M, P, B, G, V, Q, Y, F, H, J, Z, X, K, W
 
-On the right side of the keyboard, we will assign four of the seven most frequent consonants (S=162205879, N=161440601, R=147218050, L=124544026, D=113430944, C=99562807, T=99294129) to the four home row keys. We will assign the letter S, the most frequent consonant in the Spanish language, to the strongest (middle) finger on the home row. As with the left side, letters are placed so that top-frequency bigrams (more than 100,000 instances) read from right to left (ex: ND, not DN) except when both sequences have more than 100,000 instances (such as TR and RT), for ease of typing. Consonant pairs that don't have a top-frequency bigram include:  
-
+On the right side of the keyboard, we will assign four of the seven most frequent consonants (S=162205879, N=161440601, R=147218050, L=124544026, D=113430944, C=99562807, T=99294129) to the four home row keys. We will assign the letter S, the most frequent consonant in the Spanish language, to the strongest (middle) finger on the home row.
     
-# REPLACE:
-       
-    NT  989505
-    ST  776851
-    ND  526709 
-    TR  487365
-    SD  485361
-    NC  449161
-    SC  326202
-    NS  288679   
-    RT  262674
-    NL  233697
-    RD  183487       
-    CT  163410
-    LD  162178   
-    RS  153332
-    RL  147398
-    LT  146961
-    LC  144473
-    RC  140985
-    SL  124408
-    CR  112206
-    RN  102872
-        
-The above constraints lead to 4 arrangements of the consonants:
+Bigrams that contain two non-repeating consonants, with frequencies greater than 1 million:
+
+    NT	13403852
+    ST	10479844
+    TR    6982844
+    ND	 6501402
+    PR	 5241844
+    NC	 4535985
+    RT	 3473930
+    BR	 3216626
+    MP	 3063320
+    CH	 2911020
+    SP	 2412701
+    NS	 2352231
+    MB	 2169462
+    GR	 2082624
+    BL	 2053224
+    CT	 1927284
+    RM	 1908571
+    SC	 1907706
+    CR	 1537677
+    RD	 1524597
+    RS	 1509084
+    PL	 1459569
+    RC	 1280075
+    NG	 1253772
+    LT	 1253199
+    DR	 1140387
+    RN	 1072129
+    RG	 1017226
+
+Bigrams from the above list that contain two of the most frequent consonants (S, N, R, L, D, C, T):
+    
+    NT	13403852
+    ST	10479844
+    TR    6982844
+    ND	 6501402
+    NC	 4535985
+    RT	 3473930
+    NS	 2352231
+    CT	 1927284
+    SC	 1907706
+    CR	 1537677
+    RD	 1524597
+    RS	 1509084
+    RC	 1280075
+    LT	 1253199
+    DR	 1140387
+    RN	 1072129
+
+As with the left side, letters are placed so that top-frequency bigrams read from right to left (ex: "NT" read as TN, not NT) except when both sequences have more than 1 million instances (TR/RT, CR/RC, and RD/DR), for ease of typing. The above constraints lead to 4 arrangements of the consonants:
 
     - - - -    - - - -    - - - -    - - - -
     L S N R    D S N R    C S N R    T S N R
