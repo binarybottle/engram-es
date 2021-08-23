@@ -1,22 +1,38 @@
-# Arno's engram-es keyboard layout
+# Engram-es Spanish keyboard layout
 
 Engram-es is a key layout optimized for comfortable and efficient touch typing in Spanish 
-created by [Arno Klein](https://binarybottle.com), 
-with [open source code](https://github.com/binarybottle/engram-es),
+created by [Arno Klein](https://binarybottle.com) with help from Ian Douglas, aMiguel Guzmán, and Nick Gutiérrez.
+There is [open source code](https://github.com/binarybottle/engram-es)
 based on the original English Engram [open source code](https://github.com/binarybottle/engram).
 <!-- You can install the engram-es layout on [Windows, macOS, and Linux](https://keyman.com/keyboards/engram)
 or [try it out online](https://keymanweb.com/#en,Keyboard_engram).-->
 
-Letters are optimally arranged according to ergonomics factors that promote reduction of lateral finger movements and more efficient typing of high-frequency letter pairs. The most common punctuation marks are logically grouped together in the middle columns and numbers are paired with mathematical and logic symbols (shown as pairs of default and Shift-key-accessed characters).
+Letters are optimally arranged according to ergonomics factors that promote reduction of lateral finger movements and more efficient typing of high-frequency letter pairs. The most common punctuation marks and special key for diacritical marks (☆) are logically grouped together in the middle columns and numbers are paired with mathematical and logic symbols (shown as pairs of default and Shift-key-accessed characters). See below for a full description.
 
-<!--
-         [{ 1| 2= 3~ 4+  5<  6>  7^ 8& 9% 0* ]} /\
-            bB yY oO uU  '(  ")  lL dD wW VV zZ #$ @`
-            cC iI eE aA  ,;  .:  hH tT sS nN qQ 
-            gG xX jJ kK  -_  ?!  rR MM fF pP            
--->
 
-See below for a full description and comparisons with other key layouts.
+          [ | = ~ +   <  >   ^ & % * ] \
+          ( 1 2 3 4   5  6   7 8 9 0 ) /
+
+            Z H O X  .:  "'  M D B J W -_ @#
+            P I E A  ,;  ☆   T S N R K
+            F Y Q U  ¿¡  ?!  C L V G
+            
+    ☆ + aeiouAEIOU = áéíóúÁÉÍÓÚ (acute accent)
+    ☆ + nN = ñÑ
+    ☆ + cC = çÇ
+    ☆ + Shift         + [letter] = [letter] with a diaresis/umlaut: ü
+    ☆         + AltGr + [letter] = [letter] with a grave accent: è
+    ☆ + Shift + AltGr + [letter] = [letter] with a circumflex: â
+    AltGr + ( = { (open curly brace)
+    AltGr + ) = } (close curly brace)
+    AltGr + 5 = « (open quote/comillas) 
+    AltGr + 6 = » (open quote/comillas)
+    AltGr + - = — (em dash)
+    AltGr + ' = ` (back tick)
+    AltGr + . = • (middle dot, or "interpunct")
+    AltGr + s = $ (dollar currency)
+    AltGr + e = € (euro currency)
+    AltGr + l = £ (pound currency)
 
 <!-- ### Standard diagonal keyboard (default and Shift-key layers)
 ![Standard keyboard](https://github.com/binarybottle/engram/blob/master/assets/engram-800px.png?raw=true)
@@ -79,7 +95,7 @@ We will consider the most comfortable keys to be those typed by either hand on t
      5  6  7  8       17 18 19 20  
      9  -  - 12       21  -  - 24
          
-## Step 2: Arrange the most frequent letters based on comfort and bigram frequencies
+## Step 2: Arrange the most frequent letters based on comfort and bigram frequencies  <a name="step2">
 
 Below, we will arrange vowels on one side and the most frequent consonants to the other side to encourage balance and alternation across hands. Since aside from the letters W and K there is symmetry across left and right sides, we will decide later which side the vowels and which side the most frequent consonants should go.
 
@@ -95,8 +111,8 @@ Bigrams that contain two non-repeating vowels, and their frequencies:
     IE 	 8264649
     UA	 2727622
     UI	 2699510
-    EA    1634965
-    AU    1206620
+    EA   1634965
+    AU   1206620
     EO	  787382
     AI	  768894
     EI	  578063
@@ -126,7 +142,7 @@ Bigrams that contain two non-repeating consonants, with frequencies greater than
 
     NT	13403852
     ST	10479844
-    TR    6982844
+    TR   6982844
     ND	 6501402
     PR	 5241844
     NC	 4535985
@@ -157,7 +173,7 @@ Bigrams from the above list that contain two of the most frequent consonants (S,
     
     NT	13403852
     ST	10479844
-    TR    6982844
+    TR   6982844
     ND	 6501402
     NC	 4535985
     RT	 3473930
@@ -208,7 +224,7 @@ The resulting 16 initial layouts, each with 16 unassigned keys, are represented 
     ---- IOEA ----    ---- CSNR ----
     ---- IOEA ----    ---- TSNR ----    
 
-###### Step 3: Optimize assignment of the remaining letters
+## Step 3: Optimize assignment of the remaining letters <a name="step3">
     
 We want to assign letters to the 16 unassigned keys in each of the above 16 layouts based on our scoring model. That would mean scoring all possible arrangements for each layout and choosing the arrangement with the highest score, but since there are over 20 trillion (16!) possible ways of arranging 16 letters, we will break up the assignment into two stages for the most frequent and least frequent remaining letters. 
     
@@ -234,7 +250,7 @@ E, A, O, S, N, I, R, L, D, C, T, U, P, M, B, G, **V, Q, H, F, Y, J, Z, X**, K, W
      -  -  -  -        -  -  -  -
      - 10 11  -        - 22 23  -
      
-### Further optimize layouts by exchanging more letters
+#### Further optimize layouts by exchanging more letters
 
 If we relax the above fixed initializations and permit further exchange of letters, then we can search for even higher-scoring layouts. As a final optimization step we exchange letters, eight keys at a time (8! = 40,320) selected twice in 14 different ways, in each of the above 16 layouts, to score a total of over 18 million combinations. We allow the following keys to exchange letters:
 
@@ -253,8 +269,12 @@ If we relax the above fixed initializations and permit further exchange of lette
     13. Top center and lower sides
     14. Top sides and lower center
     15. Repeat 1-14
-             
-### **Engram Scoring Model**
+         
+### Create variants of top-scoring layouts
+
+As an alternative to simply choosing the first-place layout, we can generate variations of this layout and find those variants within a small difference of one another and select from among these variants. For this, we select keys to vary, compute scores for every combination of the letters assigned to these keys, and select among those that are tied for first place.
+         
+## **Engram Scoring Model**
     
 Our optimization algorithm finds every permutation of a given set of letters, maps these letter permutations to a set of keys, and ranks these letter-key mappings according to a score reflecting ease of typing key pairs and frequency of letter pairs (bigrams). The score is the average of the scores for all possible bigrams in this arrangement. The score for each bigram is a product of the frequency of occurrence of that bigram, the frequency of each of the bigram’s characters, and flow, strength (and optional speed) factors for the key pair.
     
@@ -301,16 +321,6 @@ Repetition:
 
 Strength: Accounted for by the strength matrix (minimum value for the little finger = 0.9) 
 
-### Step 4: Evaluate winner against other optimized layouts
-
-<!--
-After assigning letters K and W to upper right keys outside of the home blocks and testing left/right side swap of all letters, the winning layout is:
-    
-    B Y O U  L D W V Z
-    C I E A  H T S N Q
-    G X J K  R M F P    
--->
-    
 ## Step 4: Evaluate winning layout <a name="step4">
     
 We evaluate the candidate winner with tests:
@@ -319,39 +329,38 @@ We evaluate the candidate winner with tests:
     2. Evaluate sensitivity of the variants to the scoring parameters
     3. Search for higher-scoring layouts by rearranging letters
          
-### Step 5. Arrange non-letter characters in easy-to-remember places
+## Step 5: Arrange non-letter characters in easy-to-remember places <a name="step5">
     
 Now that we have all 26 letters accounted for, we turn our attention to non-letter characters, taking into account frequency of punctuation and ease of recall.
   
-### Add letters with diacritical marks
+### Add diacritical marks
 
-A special "diacritikey" (denoted by ☆ U+2606) will be used to apply 
-(¿?) (¡!) 
-(« »)
-áéíóúüñç
-ÁÉÍÓÚÜÑÇ
-€
-
+A special diacritical key (denoted by ☆ U+2606) when simultaneously pressed with a letter adds a diacritical mark to that letter:
+  
+    ☆ + aeiouAEIOU = áéíóúÁÉÍÓÚ (acute accent)
+    ☆ + nN = ñÑ
+    ☆ + cC = çÇ
+    ☆ + Shift + [letter] = [letter] with a diaresis/umlaut: ü
+    
+For generalizability beyond Spanish:
+    
+    ☆         + AltGr + [letter] = [letter] with a grave accent: è
+    ☆ + Shift + AltGr + [letter] = [letter] with a circumflex: â
+ 
 
 ### Add punctuation keys and number keys
 
-(¿?) (¡!) 
-(« »)
-áéíóúüñç
-ÁÉÍÓÚÜÑÇ
-€
-
 We will assign some of the most frequent punctuation to the six keys in the middle two columns:
 
-            J Y O Z  '   "   M L B V W
-            P I E A  ,   .   D S N R K
-            G Q X U  -   ?   T C H F
+            Z H O X  .   "   M D B J W
+            P I E A  ,   ☆   T S N R K
+            F Y Q U  ¿   ?   C L V G
 
 We will use the Shift key to group similar punctuation marks:
 
-            J Y O Z  '(  ")  M L B V W
-            P I E A  ,;  .:  D S N R K
-            G Q X U  -_  ?!  T C H F
+            Z H O X  .:  "'  M D B J W
+            P I E A  ,;  ☆   T S N R K
+            F Y Q U  ¿¡  ?!  C L V G
 
 **Number keys**: 
 The numbers are flanked to the left and right by [square brackets], and {curly brackets} accessed by the Shift key. Each of the numbers is paired with a mathematical or logic symbol accessed by the Shift key:
@@ -369,14 +378,28 @@ The numbers are flanked to the left and right by [square brackets], and {curly b
     9: % (percent: related to division; resembles "9")
     0: * (asterisk: for multiplication; resembles "0") 
 
-The three remaining keys in many common keyboards (flanking the upper right hand corner Backspace key) are displaced in special keyboards, such as the Kinesis Advantage and Ergodox. For the top right key, we will assign the forward slash and backslash: / \\. For the remaining two keys, we will assign two symbols that in modern usage have significance in social media: the hash/pound sign and the "at sign". The hash or hashtag identifies digital content on a specific topic (the Shift key accesses the money sign). The "at sign" identifies a location or affiliation (such as in email addresses) and acts as a "handle" to identify users in popular social media platforms and online forums.
-
-<!--
+The three remaining keys in many common keyboards (flanking the upper right hand corner Backspace key) are displaced in special keyboards, such as the Kinesis Advantage and Ergodox. For the top right key, we will assign the forward slash and backslash: / \\. For one of the remaining two keys we will assign the hyphen and underscore, and to the other key, two symbols that in modern usage have significance in social media: the hash/pound sign and the "at sign". The hash or hashtag identifies digital content on a specific topic (the Shift key accesses the money sign). The "at sign" identifies a location or affiliation (such as in email addresses) and acts as a "handle" to identify users in popular social media platforms and online forums.
 
 The resulting engram-es layout:
 
-         [{ 1| 2= 3~ 4+  5<  6>  7^ 8& 9% 0* ]} /\
-            bB yY oO uU  '(  ")  lL dD wW vV zZ #$ @`
-            cC iI eE aA  ,;  .:  hH tT sS nN qQ
-            gG xX jJ kK  -_  ?!  rR mM fF pP
--->
+          [ | = ~ +   <  >   ^ & % * ] \
+          ( 1 2 3 4   5  6   7 8 9 0 ) /
+
+            Z H O X  .:  "'  M D B J W -_ @#
+            P I E A  ,;  ☆   T S N R K
+            F Y Q U  ¿¡  ?!  C L V G
+
+The AltGr key will access additional symbols:
+    
+    AltGr + ( = { (open curly brace)
+    AltGr + ) = } (close curly brace)
+    AltGr + 5 = « (open quote/comillas) 
+    AltGr + 6 = » (open quote/comillas)
+    AltGr + - = — (em dash)
+    AltGr + ' = ` (back tick)
+    AltGr + . = • (middle dot, or "interpunct")
+    AltGr + s = $ (dollar currency)
+    AltGr + e = € (euro currency)
+    AltGr + l = £ (pound currency)
+ 
+And the extra key on ISO keyboards accesses a duplicate asterisk (*).
