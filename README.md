@@ -34,11 +34,11 @@ Letters are optimally arranged according to ergonomics factors that promote redu
     AltGr + e = € (euro currency)
     AltGr + l = £ (pound currency)
 
-<!-- ### Standard diagonal keyboard (default and Shift-key layers)
-![Standard keyboard](https://github.com/binarybottle/engram/blob/master/assets/engram-800px.png?raw=true)
+### Standard diagonal keyboard (default and Shift-key layers)
+![Standard keyboard](https://github.com/binarybottle/engram/blob/master/assets/engram-es-800px.png?raw=true)
 
-### "Ergonomic" orthonormal keyboard (default and Shift-key layers)
-![Orthonormal keyboard](https://github.com/binarybottle/engram/blob/master/assets/engram-ergo-squeezed-800px.png?raw=true) -->
+<!-- ### "Ergonomic" orthonormal keyboard (default and Shift-key layers)
+![Orthonormal keyboard](https://github.com/binarybottle/engram/blob/master/assets/engram-es-ergo.png?raw=true) -->
 
 (c) 2021 Arno Klein, MIT license
 
