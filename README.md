@@ -34,7 +34,7 @@ Letters are optimally arranged according to ergonomics factors that promote redu
     AltGr + e = € (euro currency)
     AltGr + l = £ (pound currency)
 
-### Standard diagonal keyboard (default and Shift-key layers)
+### Standard diagonal keyboard (default, Shift, and AltGr layers)
 ![Standard keyboard](https://github.com/binarybottle/engram-es/blob/master/assets/engram-es-800px.png?raw=true)
 
 <!-- ### "Ergonomic" orthonormal keyboard (default and Shift-key layers)
