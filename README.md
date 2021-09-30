@@ -35,10 +35,7 @@ Letters are optimally arranged according to ergonomics factors that promote redu
     AltGr + l = £ (pound currency)
 
 ### Standard diagonal keyboard (default, Shift, and AltGr layers)
-![Standard keyboard](https://github.com/binarybottle/engram-es/blob/master/assets/engram-es-800px.png?raw=true)
-
-<!-- ### "Ergonomic" orthonormal keyboard (default and Shift-key layers)
-![Orthonormal keyboard](https://github.com/binarybottle/engram-es/blob/master/assets/engram-es-ergo.png?raw=true) -->
+![Standard keyboard](https://github.com/binarybottle/engram-es/blob/master/assets/engram-es.png?raw=true)
 
 (c) 2021 Arno Klein, MIT license
 
